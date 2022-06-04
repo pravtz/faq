@@ -9,3 +9,14 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+model feedback {
+  id         String   @id @default(uuid())
+  type       String
+  comment    String
+  screenshot String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("feedbacks")
+}

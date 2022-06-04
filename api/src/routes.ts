@@ -1,10 +1,9 @@
 import { Router } from 'express'
-import { Request, Response } from 'express'
+import { FeedbackController } from './controllers/FeedbackController'
 
 const routes = Router()
+const feedbackController = new FeedbackController
 
-routes.get("/", (request: Request, response: Response) => {
-  return response.status(200).json({ status: "ok" })
-})
+routes.get("/", feedbackController.setFeedback)
 
 export default routes
